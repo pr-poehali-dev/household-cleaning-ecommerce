@@ -1,0 +1,24 @@
+{
+  "tests": [
+    {
+      "name": "Create order without auth",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "items": [{"id": 1, "name": "Средство для посуды", "price": 320, "quantity": 2, "volume": "500 мл"}],
+        "delivery_type": "delivery",
+        "total": 640
+      },
+      "expectedStatus": 200,
+      "expectedBody": {"order_id": 1},
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Get orders without auth",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 401,
+      "bodyMatcher": "partial"
+    }
+  ]
+}
