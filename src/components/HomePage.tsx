@@ -102,6 +102,110 @@ export default function HomePage({ setPage, addToCart }: HomePageProps) {
         </div>
       </section>
 
+      {/* Promotions */}
+      <section className="container mx-auto px-4 pb-14">
+        <div className="mb-8">
+          <h2 className="font-cormorant text-3xl font-semibold">Акции и скидки</h2>
+          <p className="text-muted-foreground text-sm mt-1">Актуальные предложения этого месяца</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {/* Promo 1 */}
+          <div className="relative overflow-hidden rounded-2xl p-6 flex flex-col justify-between min-h-[200px]"
+            style={{ background: "linear-gradient(135deg, hsl(35,70%,55%) 0%, hsl(30,80%,65%) 100%)" }}>
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-3">
+                До 31 марта
+              </span>
+              <h3 className="font-cormorant text-2xl font-semibold text-white leading-tight mb-2">
+                Весенняя уборка
+              </h3>
+              <p className="text-white/80 text-sm">Скидка 15% на все средства для уборки</p>
+            </div>
+            <div className="flex items-end justify-between">
+              <button
+                onClick={() => setPage("catalog")}
+                className="mt-4 bg-white text-amber-700 text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Выбрать
+              </button>
+              <span className="text-white/30 font-cormorant text-7xl font-bold leading-none select-none">
+                15%
+              </span>
+            </div>
+          </div>
+
+          {/* Promo 2 */}
+          <div className="relative overflow-hidden rounded-2xl p-6 flex flex-col justify-between min-h-[200px]"
+            style={{ background: "linear-gradient(135deg, hsl(110,40%,30%) 0%, hsl(110,35%,45%) 100%)" }}>
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-3">
+                Постоянная акция
+              </span>
+              <h3 className="font-cormorant text-2xl font-semibold text-white leading-tight mb-2">
+                Набор для кухни
+              </h3>
+              <p className="text-white/80 text-sm">Средство для посуды + таблетки ПММ = −20%</p>
+            </div>
+            <div className="flex items-end justify-between">
+              <button
+                onClick={() => setPage("catalog")}
+                className="mt-4 bg-white text-primary text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Выбрать
+              </button>
+              <span className="text-white/20 font-cormorant text-7xl font-bold leading-none select-none">
+                20%
+              </span>
+            </div>
+          </div>
+
+          {/* Promo 3 */}
+          <div className="relative overflow-hidden rounded-2xl p-6 flex flex-col justify-between min-h-[200px]"
+            style={{ background: "linear-gradient(135deg, hsl(200,50%,40%) 0%, hsl(210,55%,55%) 100%)" }}>
+            <div>
+              <span className="inline-block bg-white/20 text-white text-xs font-semibold px-2.5 py-1 rounded-full mb-3">
+                Бесплатно
+              </span>
+              <h3 className="font-cormorant text-2xl font-semibold text-white leading-tight mb-2">
+                Доставка от 2 000 ₽
+              </h3>
+              <p className="text-white/80 text-sm">Закажите на сумму от 2 000 ₽ и доставим бесплатно</p>
+            </div>
+            <div className="flex items-end justify-between">
+              <button
+                onClick={() => setPage("delivery")}
+                className="mt-4 bg-white text-blue-700 text-sm font-semibold px-4 py-2 rounded-full hover:bg-white/90 transition-colors"
+              >
+                Подробнее
+              </button>
+              <span className="text-5xl leading-none select-none">🚚</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Countdown promo */}
+        <div className="mt-4 bg-card border border-border rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 justify-between">
+          <div className="flex items-center gap-4">
+            <div className="text-3xl">🎁</div>
+            <div>
+              <p className="font-semibold">Промокод на первый заказ</p>
+              <p className="text-sm text-muted-foreground">Скидка 10% для новых покупателей</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <span className="bg-primary/10 text-primary font-mono font-bold text-lg px-4 py-2 rounded-xl tracking-widest">
+              ECO10
+            </span>
+            <button
+              onClick={() => setPage("catalog")}
+              className="bg-primary text-primary-foreground text-sm px-4 py-2.5 rounded-xl hover:bg-primary/90 transition-colors font-medium"
+            >
+              Применить
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* Banner */}
       <section className="mx-4 mb-14 rounded-3xl overflow-hidden relative"
         style={{ background: "linear-gradient(120deg, hsl(110,35%,28%) 0%, hsl(110,35%,40%) 100%)" }}>
