@@ -62,12 +62,14 @@
     font-family: "Golos Text", sans-serif;
   }
 
+  /* ── базовые анимации ── */
   .animate-fade-in {
-    animation: fadeIn 0.5s ease forwards;
+    animation: fadeIn 0.6s ease forwards;
   }
   .animate-slide-up {
-    animation: slideUp 0.5s ease forwards;
+    animation: slideUp 0.6s ease forwards;
   }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -79,7 +81,7 @@
   @keyframes slideUp {
     from {
       opacity: 0;
-      transform: translateY(24px);
+      transform: translateY(28px);
     }
     to {
       opacity: 1;
@@ -87,15 +89,139 @@
     }
   }
 
-  .eco-grain {
-    position: relative;
+  /* ── плавающие пузыри ── */
+  @keyframes floatA {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg) scale(1);
+    }
+    33% {
+      transform: translate(18px, -24px) rotate(8deg) scale(1.05);
+    }
+    66% {
+      transform: translate(-12px, 14px) rotate(-5deg) scale(0.97);
+    }
   }
-  .eco-grain::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
+  @keyframes floatB {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    40% {
+      transform: translate(-20px, 16px) rotate(-10deg);
+    }
+    70% {
+      transform: translate(14px, -18px) rotate(6deg);
+    }
+  }
+  @keyframes floatC {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(10px, 22px) scale(1.08);
+    }
+  }
+  @keyframes floatD {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  /* ── бесконечная бегущая строка ── */
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* ── пульс-кольцо ── */
+  @keyframes ripple {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  /* ── вращение листика ── */
+  @keyframes spinSlow {
+    from {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+    to {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  /* ── покачивание ── */
+  @keyframes sway {
+    0%,
+    100% {
+      transform: rotate(-6deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+
+  /* ── движение пузырей снизу вверх (hero bg) ── */
+  @keyframes riseUp {
+    0% {
+      transform: translateY(100px) scale(0.7);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.5;
+    }
+    90% {
+      opacity: 0.2;
+    }
+    100% {
+      transform: translateY(-120px) scale(1.1);
+      opacity: 0;
+    }
+  }
+
+  .animate-float-a {
+    animation: floatA 7s ease-in-out infinite;
+  }
+  .animate-float-b {
+    animation: floatB 9s ease-in-out infinite;
+  }
+  .animate-float-c {
+    animation: floatC 6s ease-in-out infinite;
+  }
+  .animate-float-d {
+    animation: floatD 4s ease-in-out infinite;
+  }
+  .animate-marquee {
+    animation: marquee 22s linear infinite;
+  }
+  .animate-ripple {
+    animation: ripple 2.5s ease-out infinite;
+  }
+  .animate-spin-slow {
+    animation: spinSlow 12s linear infinite;
+  }
+  .animate-sway {
+    animation: sway 3s ease-in-out infinite;
+  }
+  .animate-rise {
+    animation: riseUp 6s ease-in-out infinite;
   }
 }
